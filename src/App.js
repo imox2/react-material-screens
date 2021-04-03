@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Switch,
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+} from "react-router-dom";
+import
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+       <Router>
+       <Switch>
+              <Route component={Redeem} path="/redeem/:id" />
+              <Route component={Redeem} path="/redeem" />
+              {/* <Route component={Information} path="/information" /> */}
+              <Route
+                path="/information"
+                render={(props) => <Information {...props} />}
+              />
+              {/* <Route component={Verification} path="/verification" /> */}
+              <Route
+                path="/verification"
+                render={(props) => <Verification {...props} />}
+              />
+              <Route component={Data} path="/data" />
+              <Route component={Home} path="/earn-points" />
+              <Route component={Activity} path="/activity" />
+              {/* <Route component={Profile} path="/profile" /> */}
+              <Route
+                path="/profile"
+                render={(props) => <Profile {...props} />}
+              />
+              {/* <Route exactly component={Home} pattern="/" /> */}
+              <Route
+                exactly
+                path="/"
+                render={(props) => <Dashboard {...props} />}
+              />
+              {/* <Route exactly component={Dashboard} pattern="/" /> */}
+            </Switch>
+      </Router>
     </div>
   );
 }
