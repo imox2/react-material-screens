@@ -24,13 +24,14 @@ const theme = createMuiTheme({
 // } );
 
 const styles = makeStyles((theme) => ({
-  faisal: {
+  root: {
     [theme.breakpoints.down("sm")]: {
       marginRight: '1rem',
       marginLeft: '1rem',
     },
     [theme.breakpoints.up("md")]: {
-      backgroundColor: theme.palette.primary.main,
+      marginRight: '8rem',
+      marginLeft: '8rem',
     },
     [theme.breakpoints.up("lg")]: {
       marginRight: '8rem',
@@ -45,10 +46,9 @@ function App(props) {
   console.log(classes);
   return (
       <MuiThemeProvider theme={theme}>
-        <div className={classes.faisal}>
+        <div className={classes.root}>
        <Router>
        <Switch>
-                
               <Route component={PaymentInformation} path="/payment" />
               <Route component={ReviewOrder} path="/order" />
               <Route component={TermsAndConditions} path="/tnc" />
