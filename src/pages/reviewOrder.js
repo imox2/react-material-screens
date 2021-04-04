@@ -30,6 +30,20 @@ const useStyles = makeStyles((theme) => ({
   gridBox: {
     marginBottom: "30px",
   },
+  button: {
+    [theme.breakpoints.down("sm")]: {
+        width: "100%",
+        margin: "auto",
+    },
+    [theme.breakpoints.up("md")]: {
+        width: "50%",
+        margin: "auto",
+    },
+    [theme.breakpoints.up("lg")]: {
+        width: "50%",
+        margin: "auto",
+    },
+  },
 }));
 
 function ReviewOrder() {
@@ -133,7 +147,8 @@ function ReviewOrder() {
         Agreement. I hereby authorize the charges set out on this page, if any,
         to be applied to the card I have placed on file.
         <Typography align="center">
-          <Button
+        <div className={classes.button}>
+        <Button
             style={{ borderRadius: "15px" }}
             color="primary"
             size="large"
@@ -142,6 +157,7 @@ function ReviewOrder() {
           >
             Subscribe now
           </Button>
+        </div>
         </Typography>
         <div style={{ margin: "2%" }} className={classes.link}>
           <Typography align="center">Return to package selection</Typography>

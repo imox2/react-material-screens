@@ -9,6 +9,23 @@ const styles = (theme) => ({
     textDecoration: "underline",
     cursor: "pointer",
   },
+  button: {
+    [theme.breakpoints.down("sm")]: {
+        width: "100%",
+        margin: "auto",
+        marginTop: "20px",
+    },
+    [theme.breakpoints.up("md")]: {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px",
+    },
+    [theme.breakpoints.up("lg")]: {
+        width: "50%",
+        margin: "auto",
+        marginTop: "20px",
+    },
+  },
 });
 
 function TermsAndConditions(props) {
@@ -50,15 +67,16 @@ function TermsAndConditions(props) {
         </div>
         <div>
           <Typography align="center">
+          <div className={classes.button} >
             <Button
-              style={{ borderRadius: "15px" }}
-              color="primary"
-              size="large"
-              variant="contained"
-              fullWidth
-            >
-              Accept Terms
-            </Button>
+                style={{ borderRadius: "15px" }}
+                color="primary"
+                size="large"
+                variant="contained"
+                fullWidth>
+                Accept Terms
+              </Button>
+          </div>
           </Typography>
         </div>
         <div style={{ marginTop: "2%" }} className={classes.root}>

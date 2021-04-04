@@ -6,6 +6,7 @@ import {
 import  PaymentInformation  from "./pages/paymentInformation";
 import  ReviewOrder  from "./pages/reviewOrder";
 import  TermsAndConditions  from "./pages/termsandconditions";
+import  Navbar  from "./components/navbar";
 import {withStyles,makeStyles} from "@material-ui/core/styles";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
@@ -47,6 +48,7 @@ function App(props) {
   return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.root}>
+        <Navbar />
        <Router>
        <Switch>
               <Route component={PaymentInformation} path="/payment" />
