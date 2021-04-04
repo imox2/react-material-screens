@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
@@ -8,17 +7,15 @@ import MenuItem from "@material-ui/core/MenuItem";
 import StyledCheckbox from "../components/styledCheckbox";
 import Grid from "@material-ui/core/Grid";
 import InputRow from "../components/inputRow";
-=======
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import StyledCheckbox from "../components/styledCheckbox";
->>>>>>> ff2ab9d3719be25d7788ecebfb35d8fee60d8dca
+import StyledButton from "../components/styledButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import { useState } from "react";
 
 const months = [
   {
-    value: "default",
-    label: "-Select One-",
+    value: "Default",
+    label: "Select Month",
   },
   {
     value: "January",
@@ -72,6 +69,8 @@ const months = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    paddingLeft: "1rem",
+    paddingRight: "2rem",
     "&:hover": {
       backgroundColor: "transparent",
     },
@@ -83,10 +82,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   input_label: {
-    color: "#a9a9a9",
+    color: "rgba(0,0,0,0.7)",
+    marginBottom: "0.3rem",
+  },
+  input_box: {
+    flexGrow: "2",
   },
   custom_input: {
     width: "100%",
+    height: "1rem",
     border: "1.5px solid #c9c9c9",
     borderRadius: "3px",
     padding: "5px",
@@ -97,26 +101,18 @@ const useStyles = makeStyles((theme) => ({
       border: "2.5px solid #3f51b5",
     },
   },
+  required_indicator: {
+    backgroundColor: "red",
+    width: ".2rem",
+    height: "1.8rem",
+    marginRight: ".3rem",
+    display: "inline-block",
+  },
 }));
 
 function PaymentInformation() {
   const classes = useStyles();
-
-  return (
-    <Radio
-      className={classes.root}
-      disableRipple
-      color="default"
-      checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
-      icon={<span className={classes.icon} />}
-      {...props}
-    />
-  );
-}
-
-function PaymentInformation() {
-  const classes = useStyles();
-  const [month, setMonth] = React.useState("-Select One-");
+  const [month, setMonth] = React.useState("Default");
 
   const handleChange = (event) => {
     setMonth(event.target.value);
@@ -135,105 +131,184 @@ function PaymentInformation() {
     </FormControl> */}
       <div>
         <h1>Payment Information</h1>
-        <Grid container>
-          <form className={classes.root} noValidate autoComplete="off">
+        <form className={classes.root} noValidate autoComplete="off">
+          <Grid container justify="center">
             <InputRow>
               <div>
                 <div className={classes.input_label}>
-                  Expiration Date (MMYY)
+                  <label>Expiration Date (MMYY)</label>
                 </div>
-                <TextField
-                  id="standard-select-currency"
-                  select
-                  value={month}
-                  onChange={handleChange}
-                >
-                  {months.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-                <TextField
-                  id="standard-select-currency"
-                  select
-                  value={month}
-                  onChange={handleChange}
-                >
-                  {months.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                <Grid container alignItems="center">
+                  <Grid item className={classes.input_box}>
+                    <Select
+                      value={month}
+                      onChange={handleChange}
+                      style={{ width: "100%" }}
+                    >
+                      {months.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </Grid>
+                  <Grid
+                    item
+                    style={{ color: "rgba(0,0,0,0.7)", margin: "0 0.5rem" }}
+                  >
+                    {" "}
+                    /{" "}
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <Select
+                      value={month}
+                      onChange={handleChange}
+                      style={{ width: "100%" }}
+                    >
+                      {months.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </Grid>
+                </Grid>
               </div>
             </InputRow>
-            <div>
-              Card Type
-              <div>
-                {/* <img alt="prize" className="rounded-xl object-cover" src="https://logodix.com/logo/797185.png" /> */}
+            {/* <div>
+              <div className={classes.input_label}>
+                <label htmlFor="cardType">Card Type</label>
               </div>
-            </div>
+              <div>
+                <img alt="prize" className="rounded-xl object-cover" src="https://logodix.com/logo/797185.png" />
+              </div>
+            </div> */}
             <InputRow>
               <div>
-                Card Number
-                <TextField
-                  id="standard-basic"
-                  label="Standard"
-                  InputProps={{ classes: { input: classes.custom_input }}}
-                />
-              </div>
-            </InputRow>
-            <InputRow>
-              <div>
-                CVV
-                <TextField id="outlined-required" label="Standard" variant="outlined"/>
-              </div>
-            </InputRow>
-            <InputRow>
-              <div>
-                Cardholder Name
-                <TextField id="standard-basic" label="Standard" />
-              </div>
-            </InputRow>
-            <InputRow>
-              <div>
-                Address 1
-                <TextField id="standard-basic" label="Standard" />
-              </div>
-            </InputRow>
-            <InputRow>
-              <div>
-                Address 2
-                <TextField id="standard-basic" label="Standard" />
+                <div className={classes.input_label}>
+                  <label htmlFor="cardNumber">Card Number</label>
+                </div>
+                <Grid container>
+                  <Grid item>
+                    <div className={classes.required_indicator} />
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <input id="cardNumber" className={classes.custom_input} />
+                  </Grid>
+                </Grid>
               </div>
             </InputRow>
             <InputRow>
               <div>
-                Postal Code
-                <TextField id="standard-basic" label="Standard" />
+                <div className={classes.input_label}>
+                  <label htmlFor="cvv">CVV</label>
+                </div>
+                <Grid container>
+                  <Grid item>
+                    <div className={classes.required_indicator} />
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <input id="cvv" className={classes.custom_input} />
+                  </Grid>
+                </Grid>
               </div>
             </InputRow>
-            <p>Required Field</p>
-            <StyledCheckbox />
-            By providing my credit card number, I understand that my credit card
-            number will be placed on file for future renewals of my Connected
-            Care/Remote/Guidance subscriptions. Upon expiration, this
-            subscription will be automatically renew for another terms according
-            to the billing plan I have selected, and for subsequent renewals. In
-            accordance with the Terms and Conditions of my Subscriber Agreement,
-            including the refund policy. Unless otherwise stated, for each
-            renewal period of each subscription, my credit card account number
-            on file will be charged on the renewal date at the then current
-            subscription rate, plus applicable taxes and fees, unless I cancel
-            my subscription rate, plus applicable taxes and fees, unless I
-            cancel my subscription prior to the renewal date. I may cancel at
-            any time by calling (855)2BLUELINK. I authorize these future charges
-            to be applied to my credit card.
-            <button>Save and continue</button>
-            <p>back</p>
-          </form>
-        </Grid>
+            <InputRow>
+              <div>
+                <div className={classes.input_label}>
+                  <label htmlFor="name">Cardholder Name</label>
+                </div>
+                <Grid container>
+                  <Grid item>
+                    <div className={classes.required_indicator} />
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <input id="name" className={classes.custom_input} />
+                  </Grid>
+                </Grid>
+              </div>
+            </InputRow>
+            <InputRow>
+              <div>
+                <div className={classes.input_label}>
+                  <label htmlFor="address1">Address 1</label>
+                </div>
+                <Grid container>
+                  <Grid item>
+                    <div className={classes.required_indicator} />
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <input id="address1" className={classes.custom_input} />
+                  </Grid>
+                </Grid>
+              </div>
+            </InputRow>
+            <InputRow>
+              <div>
+                <div className={classes.input_label}>
+                  <label htmlFor="address2">Address2</label>
+                </div>
+                <Grid container>
+                  <Grid item>
+                    <div className={classes.required_indicator} />
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <input id="address2" className={classes.custom_input} />
+                  </Grid>
+                </Grid>
+              </div>
+            </InputRow>
+            <InputRow>
+              <div>
+                <div className={classes.input_label}>
+                  <label htmlFor="postalCode">Postal Code</label>
+                </div>
+                <Grid container>
+                  <Grid item>
+                    <div className={classes.required_indicator} />
+                  </Grid>
+                  <Grid item className={classes.input_box}>
+                    <input id="postalCode" className={classes.custom_input} />
+                  </Grid>
+                </Grid>
+              </div>
+            </InputRow>
+            <Grid container alignItems="center">
+              <Grid item>
+                <div className={classes.required_indicator}></div>
+              </Grid>
+              <Grid item>
+                <span style={{ margin: "0 0.3rem" }}>-</span>
+              </Grid>
+              <Grid item>
+                <p>Required Field</p>
+              </Grid>
+            </Grid>
+            <InputRow>
+              <StyledCheckbox />
+              By providing my credit card number, I understand that my credit
+              card number will be placed on file for future renewals of my
+              Connected Care/Remote/Guidance subscriptions. Upon expiration,
+              this subscription will be automatically renew for another terms
+              according to the billing plan I have selected, and for subsequent
+              renewals. In accordance with the Terms and Conditions of my
+              Subscriber Agreement, including the refund policy. Unless
+              otherwise stated, for each renewal period of each subscription, my
+              credit card account number on file will be charged on the renewal
+              date at the then current subscription rate, plus applicable taxes
+              and fees, unless I cancel my subscription rate, plus applicable
+              taxes and fees, unless I cancel my subscription prior to the
+              renewal date. I may cancel at any time by calling (855)2BLUELINK.
+              I authorize these future charges to be applied to my credit card.
+            </InputRow>
+            <InputRow>
+              <StyledButton text="Save & Continue" />
+            </InputRow>
+            <InputRow>
+              <p>back</p>
+            </InputRow>
+          </Grid>
+        </form>
       </div>
     </>
   );
