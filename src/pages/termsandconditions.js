@@ -1,6 +1,7 @@
 import React from "react";
 import StyledCheckbox from "../components/styledCheckbox";
-import { Typography, Button } from "@material-ui/core";
+import StyledButton from "../components/styledButton";
+import { Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Divider } from "@material-ui/core";
 const styles = (theme) => ({
@@ -8,6 +9,10 @@ const styles = (theme) => ({
     color: "blue",
     textDecoration: "underline",
     cursor: "pointer",
+  },
+  dividerStyle: {
+    marginTop: "15px",
+    marginBottom: "15px",
   },
   button: {
     [theme.breakpoints.down("xs")]: {
@@ -61,24 +66,12 @@ function TermsAndConditions(props) {
           Cicero are also reproduced in their exact original form, accompanied
           by English versions from the 1914 translation by H. Rackham.
         </div>
-        <Divider light />
+        <Divider className={classes.dividerStyle} />
         <div>
           <StyledCheckbox label="I have read and accept the Terms and Conditions" />
         </div>
         <div>
-          <Typography align="center">
-            <div className={classes.button}>
-              <Button
-                style={{ borderRadius: "15px" }}
-                color="primary"
-                size="large"
-                variant="contained"
-                fullWidth
-              >
-                Accept Terms
-              </Button>
-            </div>
-          </Typography>
+          <StyledButton text="Accept Terms" />
         </div>
         <div style={{ marginTop: "2%" }} className={classes.root}>
           <Typography align="center">Decline, exit enrollment</Typography>
