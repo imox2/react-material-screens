@@ -12,7 +12,6 @@ const styles = (theme) => ({
 });
 
 function TermsAndConditions(props) {
-  console.log("props:", props);
   const { classes } = props;
   return (
     <>
