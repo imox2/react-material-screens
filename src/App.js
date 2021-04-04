@@ -43,8 +43,8 @@ function App(props) {
   return (
     <MuiThemeProvider theme={theme}>
       <div className={classes.root}>
-        <Navbar />
         <Router>
+          <Navbar />
           <Switch>
             <Route component={PaymentInformation} path="/payment" />
             <Route component={ReviewOrder} path="/order" />
