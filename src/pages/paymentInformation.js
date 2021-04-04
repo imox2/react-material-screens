@@ -1,16 +1,12 @@
 import React from "react";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import Radio from "@material-ui/core/Radio";
-import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import StyledCheckbox from "../components/styledCheckbox";
 import Grid from "@material-ui/core/Grid";
 import InputRow from "../components/inputRow";
 import StyledButton from "../components/styledButton";
-import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import { useState } from "react";
+import { Typography } from "@material-ui/core";
 
 const months = [
   {
@@ -102,11 +98,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   required_indicator: {
-    backgroundColor: "red",
+    backgroundColor: "green",
     width: ".2rem",
     height: "1.8rem",
     marginRight: ".3rem",
     display: "inline-block",
+  },
+  link: {
+    color: "blue",
+    textDecoration: "underline",
+    cursor: "pointer",
   },
 }));
 
@@ -304,9 +305,9 @@ function PaymentInformation() {
             <InputRow>
               <StyledButton text="Save & Continue" />
             </InputRow>
-            <InputRow>
-              <p>back</p>
-            </InputRow>
+            <div className={classes.link}>
+              <Typography align="center">Back</Typography>
+            </div>
           </Grid>
         </form>
       </div>
