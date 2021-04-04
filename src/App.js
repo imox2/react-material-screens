@@ -30,12 +30,12 @@ const styles = makeStyles((theme) => ({
       marginLeft: '1rem',
     },
     [theme.breakpoints.up("md")]: {
-      marginRight: '8rem',
-      marginLeft: '8rem',
+      marginRight: '12rem',
+      marginLeft: '12rem',
     },
     [theme.breakpoints.up("lg")]: {
-      marginRight: '8rem',
-      marginLeft: '8rem',
+      marginRight: '16rem',
+      marginLeft: '16rem',
     },
   },
 }));
