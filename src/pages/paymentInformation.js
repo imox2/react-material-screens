@@ -69,11 +69,11 @@ const months = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    paddingRight: "1rem",
     paddingLeft: "1rem",
-    paddingRight: "2rem",
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
+    backgroundColor: "#f5f5f5",
     "& > *": {
       margin: theme.spacing(1),
     },
@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: "2",
   },
   custom_input: {
-    width: "100%",
+    width: "90%",
     height: "1rem",
     border: "1.5px solid #c9c9c9",
     borderRadius: "3px",
