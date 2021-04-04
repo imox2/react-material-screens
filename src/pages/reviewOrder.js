@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import StyledCheckbox from "../components/styledCheckbox";
-import { Typography, Button } from "@material-ui/core";
+import StyledButton from "../components/styledButton";
+import { Typography } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -132,17 +133,7 @@ function ReviewOrder() {
         location data, as set forth in Privacy Policy and the Subscriber
         Agreement. I hereby authorize the charges set out on this page, if any,
         to be applied to the card I have placed on file.
-        <Typography align="center">
-          <Button
-            style={{ borderRadius: "15px" }}
-            color="primary"
-            size="large"
-            variant="contained"
-            fullWidth
-          >
-            Subscribe now
-          </Button>
-        </Typography>
+        <StyledButton text="Subscribe Now" />
         <div style={{ margin: "2%" }} className={classes.link}>
           <Typography align="center">Return to package selection</Typography>
         </div>

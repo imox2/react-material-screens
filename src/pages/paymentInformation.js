@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
@@ -7,6 +8,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import StyledCheckbox from "../components/styledCheckbox";
 import Grid from "@material-ui/core/Grid";
 import InputRow from "../components/inputRow";
+=======
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
+import StyledCheckbox from "../components/styledCheckbox";
+>>>>>>> ff2ab9d3719be25d7788ecebfb35d8fee60d8dca
 
 const months = [
   {
@@ -92,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StyledRadio(props) {
+function PaymentInformation() {
   const classes = useStyles();
 
   return (
