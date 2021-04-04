@@ -31,17 +31,20 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px",
   },
   button: {
-    [theme.breakpoints.down("sm")]: {
-        width: "100%",
-        margin: "auto",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      margin: "auto",
+      marginTop: "20px",
     },
-    [theme.breakpoints.up("md")]: {
-        width: "50%",
-        margin: "auto",
+    [theme.breakpoints.up("sm")]: {
+      width: "50%",
+      margin: "auto",
+      marginTop: "20px",
     },
     [theme.breakpoints.up("lg")]: {
-        width: "50%",
-        margin: "auto",
+      width: "50%",
+      margin: "auto",
+      marginTop: "20px",
     },
   },
 }));
@@ -147,17 +150,17 @@ function ReviewOrder() {
         Agreement. I hereby authorize the charges set out on this page, if any,
         to be applied to the card I have placed on file.
         <Typography align="center">
-        <div className={classes.button}>
-        <Button
-            style={{ borderRadius: "15px" }}
-            color="primary"
-            size="large"
-            variant="contained"
-            fullWidth
-          >
-            Subscribe now
-          </Button>
-        </div>
+          <div className={classes.button}>
+            <Button
+              style={{ borderRadius: "15px" }}
+              color="primary"
+              size="large"
+              variant="contained"
+              fullWidth
+            >
+              Subscribe now
+            </Button>
+          </div>
         </Typography>
         <div style={{ margin: "2%" }} className={classes.link}>
           <Typography align="center">Return to package selection</Typography>
