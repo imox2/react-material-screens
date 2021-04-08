@@ -56,7 +56,9 @@ function ReviewOrder() {
           <Divider className={classes.dividerStyle} />
           <Grid container spacing={3}>
             <Grid className={classes.content} item xs={6}>
-              <p>Connected Care + Remote + Guidance</p>
+              <p style={{ fontWeight: "bold" }}>
+                Connected Care + Remote + Guidance
+              </p>
               <p style={{ color: "green" }}>3 months trial subscription</p>
               <p>Expires 04/25/20</p>
             </Grid>
@@ -67,7 +69,9 @@ function ReviewOrder() {
           <Divider className={classes.dividerStyle} />
           <Grid container spacing={3}>
             <Grid className={classes.content} item xs={6}>
-              <p>Connected Care + Remote + Guidance</p>
+              <p style={{ fontWeight: "bold" }}>
+                Connected Care + Remote + Guidance
+              </p>
               <p style={{ color: "green" }}>3 months trial subscription</p>
               <p>Starts 07/25/20 | Expires 04/25/20</p>
             </Grid>

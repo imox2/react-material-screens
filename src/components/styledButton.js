@@ -28,7 +28,7 @@ export default function StyledButton(props) {
     <div className={classes.button}>
       <Button
         style={{
-          borderRadius: "15px",
+          borderRadius: "20px",
           backgroundColor: "#3475C1",
           color: "white",
         }}
